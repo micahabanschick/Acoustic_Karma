@@ -23,7 +23,8 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/home' do 
-        p = params
+        # binding.pry 
+        @user = User.new(params)
         erb :home 
     end 
 
