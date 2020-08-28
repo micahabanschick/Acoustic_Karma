@@ -1,7 +1,18 @@
 body {
+    background: linear-gradient(brown, black);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
     background-image: url('/images/guitar_by_giancarlo-duarte.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
 }   
