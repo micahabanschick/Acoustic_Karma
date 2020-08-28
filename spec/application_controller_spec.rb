@@ -1,6 +1,7 @@
 require 'spec_helper'
 
-describe "Magazine App" do
+
+describe "ApplicationController" do
     
     describe "Form" do
   
