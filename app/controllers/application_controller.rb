@@ -24,9 +24,9 @@ class ApplicationController < Sinatra::Base
 
     post '/home' do 
         # binding.pry 
-        # @user = User.new(params["user"])
-        @password = params["user"][:password]
-        @username = params["user"]["username"]
+        @user = User.new(params["user"])
+        # @password = params["user"][:password]
+        # @username = params["user"][:username]
         erb :home 
     end 
 

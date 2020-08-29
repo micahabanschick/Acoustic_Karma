@@ -11,8 +11,19 @@ header {
     justify-content: center;
     height: 400px;
     text-align: center;
-    background-image: url('/images/guitar_by_giancarlo-duarte.jpg');
+    background-image: url('/images/piano+guitar_by_jake-noren.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }   
+
+main {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
+    background-image: url('/images/guitar_by_giancarlo-duarte.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
