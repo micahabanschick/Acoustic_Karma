@@ -1,11 +1,11 @@
 class User 
 
-    attr_accessor :username, :password
+    # attr_accessor :u_name, :p_word
     @@all = []
 
     def initialize(args)
-        @username = args[:username]
-        @password = args[:password]
+        # @u_name = args['username']
+        # @p_word = args[:password]
         self.save 
     end
 
