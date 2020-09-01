@@ -1,4 +1,5 @@
 body {
+    color: white;
     background: linear-gradient(brown, black);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -9,8 +10,9 @@ body {
 header {
     display: flex;
     justify-content: center;
-    height: 400px;
+    height: 600px;
     text-align: center;
+    margin-bottom: 10px;
     background-image: url('/images/piano+guitar_by_jake-noren.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -18,12 +20,18 @@ header {
 }   
 
 main {
-    display: flex;
-    justify-content: center;
-    height: 400px;
+    height: 600px;
     text-align: center;
-    background-image: url('/images/guitar_by_giancarlo-duarte.jpg');
+    /* background-image: url('/images/guitar_by_giancarlo-duarte.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
+}
+
+#emblem {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 15px;
+    top: 10px;
 }

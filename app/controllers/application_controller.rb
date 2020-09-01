@@ -9,9 +9,9 @@ class ApplicationController < Sinatra::Base
 
     get '/' do 
         # erb :index
-        username ||= nil 
-        password ||= nil 
-        if username == nil && password == nil 
+        @username ||= nil 
+        @password ||= nil 
+        if @username == nil && @password == nil 
             redirect '/login'
         else
             redirect '/home'
