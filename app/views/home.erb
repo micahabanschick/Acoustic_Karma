@@ -18,20 +18,17 @@
     <main>
         <h2>User: <%=@user.username%></h2>
         <h2>My Password is <%=@user.password%></h2>
-        <table>
-            <th>
-                <td>Song</td>
-                <td>Artist</td>
-                <td>Album</td>
-                <td>Release Date</td>
-            </th>
-            <tr>
-                <td>A Little Bit of Heaven</td>
-                <td>J. Keirn Brennan-Ernest R. Ball</td>
-                <td>N/A</td>
-                <td>N/A</td>
-            </tr>
-        </table>
+        <div class="grid-container">
+            <div class="grid-item">Song</div>
+            <div class="grid-item">Artist</div>
+            <div class="grid-item">Album</div>
+            <div class="grid-item">Release Date</div>
+
+            <div class="grid-item">A Little Bit of Heaven</div>
+            <div class="grid-item">J. Keirn Brennan-Ernest R. Ball</div>
+            <div class="grid-item">N/A</div>
+            <div class="grid-item">N/A</div>
+        </div>
     </main>
     <%# <script src="js/scripts.js"></script> %>
 </body>
