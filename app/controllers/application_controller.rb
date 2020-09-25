@@ -21,7 +21,11 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/login' do
-        erb :login
+        if !Helpers.is_logged_in?(session)
+            erb :login  
+        # else
+            # redirect to "/tweets"
+        end 
     end
 
     post '/home' do 
@@ -31,5 +35,45 @@ class ApplicationController < Sinatra::Base
         # @username = params["user"][:username]
         erb :home 
     end 
+
+    
+    get '/login' do
+        if !Helpers.is_logged_in?(session)
+            erb :login  
+        else
+            redirect to "/tweets"
+        end 
+    end
+
+    post '/login' do
+    # binding.pry
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect to "/tweets"
+        else
+            redirect to "/login"
+        end     
+    end 
+
+    get '/signup' do 
+        if session[:user_id]#.empty? 
+            redirect to "/tweets"
+        # else  
+            # erb :signup
+        end
+    end 
+
+    post '/signup' do 
+        redirect to '/signup' if params[:username].empty? || params[:password].empty? || params[:email].empty?
+        @user = User.create(params)
+        session[:user_id] = @user.id
+        redirect to "/tweets"
+    end
+
+    get '/logout' do 
+        session[:user_id] = nil
+        redirect to "/login"
+    end
 
 end
