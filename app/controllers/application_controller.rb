@@ -36,15 +36,6 @@ class ApplicationController < Sinatra::Base
         erb :home 
     end 
 
-    
-    get '/login' do
-        if !Helpers.is_logged_in?(session)
-            erb :login  
-        else
-            redirect to "/tweets"
-        end 
-    end
-
     post '/login' do
     # binding.pry
         user = User.find_by(username: params[:username])
