@@ -1,6 +1,6 @@
 ENV["SINATRA_ENV"] = "test"
 
-require_relative '../config/environment'
+require './config/environment'
 require 'rack/test'
 require 'capybara/rspec'
 require 'capybara/dsl'
@@ -32,5 +32,7 @@ end
 def app
   Rack::Builder.parse_file('config.ru').first
 end
+
+# RequireAll.strict_mode = true
 
 Capybara.app = app
