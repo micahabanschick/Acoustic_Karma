@@ -6,20 +6,17 @@ class ApplicationController < Sinatra::Base
         set :public_folder, 'public'
         set :views, 'app/views'
         enable :sessions
-        set :session_secret, "password_security"
+        set :session_secret, "password_security" 
     end
 
     get '/' do
-        Helpers.redirect_if_not_logged_in(session)
+        redirect_if_not_logged_in
         redirect to "/home"  
     end
 
     get '/login' do
-        if !Helpers.is_logged_in?(session)
-            erb :login  
-        else
-            redirect to "/posts"
-        end 
+        redirect_if_logged_in
+        erb :login, :layout => :layout_signup
     end
 
     post '/home' do 
@@ -42,11 +39,8 @@ class ApplicationController < Sinatra::Base
     end 
 
     get '/signup' do 
-        if session[:user_id]#.empty? 
-            redirect to "/posts"
-        # else  
-            # erb :signup
-        end
+        redirect_if_logged_in
+        erb :signup, :layout => :layout_signup 
     end 
 
     post '/signup' do 
@@ -59,6 +53,30 @@ class ApplicationController < Sinatra::Base
     get '/logout' do 
         session[:user_id] = nil
         redirect to "/login"
+    end
+
+    helpers do
+
+        def redirect_if_not_logged_in
+          if !is_logged_in?
+            redirect "/login?error=You have to be logged in to do that"
+          end
+        end
+
+        def redirect_if_logged_in
+            if is_logged_in?
+              redirect "/home?error=You cannot be logged in to do that"
+            end
+        end
+    
+        def is_logged_in?
+          !!session[:user_id]
+        end
+    
+        def current_user
+          User.find(session[:user_id])
+        end
+    
     end
 
 end

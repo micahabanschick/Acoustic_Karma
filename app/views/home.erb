@@ -1,35 +1,20 @@
-<%# <!doctype html>
+<header>
+    <h1>Welcome! You are now Logged into your Karma Cave.</h1>
+    <img id="emblem" src="/images/HOJ_symbol.png">
+</header> 
+<main>
+    <h2>User: <%=@user.username%></h2>
+    <h2>Password: ??? <%#=@user.password%></h2>
+    <div class="grid-container">
+        <div class="grid-item">Song</div>
+        <div class="grid-item">Artist</div>
+        <div class="grid-item">Album</div>
+        <div class="grid-item">Release Date</div>
 
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
-    <link rel="stylesheet" href="/stylesheets/home.css">
-
-</head>
-
-<body> %>
-    <header>
-        <h1>Welcome! You are now Logged into your Karma Cave.</h1>
-        <img id="emblem" src="/images/HOJ_symbol.png">
-    </header> 
-    <main>
-        <h2>User: <%=@user.username%></h2>
-        <h2>Password: ??? <%#=@user.password%></h2>
-        <div class="grid-container">
-            <div class="grid-item">Song</div>
-            <div class="grid-item">Artist</div>
-            <div class="grid-item">Album</div>
-            <div class="grid-item">Release Date</div>
-
-            <div class="grid-item">A Little Bit of Heaven</div>
-            <div class="grid-item">J. Keirn Brennan-Ernest R. Ball</div>
-            <div class="grid-item">N/A</div>
-            <div class="grid-item">N/A</div>
-        </div>
-    </main>
+        <div class="grid-item">A Little Bit of Heaven</div>
+        <div class="grid-item">J. Keirn Brennan-Ernest R. Ball</div>
+        <div class="grid-item">N/A</div>
+        <div class="grid-item">N/A</div>
+    </div>
+</main>
     <%# <script src="js/scripts.js"></script> %>
-<%# </body>
-</html> %>
