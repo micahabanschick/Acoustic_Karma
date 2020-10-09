@@ -1,4 +1,4 @@
-class Helpers
+class Helpers < ApplicationController
 
     def self.current_user(session)
         User.find(session[:user_id])
@@ -8,7 +8,7 @@ class Helpers
         !!session[:user_id]
     end 
         
-    def redirect_if_not_logged_in(session)
+    def self.redirect_if_not_logged_in(session)
         if !is_logged_in?(session)
             redirect "/login?error=You have to be logged in to do that"
         end
