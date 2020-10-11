@@ -1,9 +1,20 @@
-<form action="/signup" method="post">
-    <input type="text" name="username">
-    <input type="text" name="password">
-    <input type="text" name="email">
+<body>
+    <header>
+        <h1>Hello! Signin to access Acoustic Karma.</h1>
+    </header> 
+    <main>
+        <form action="/signup" method="post">
+            <label for="user[username]">Username:</label><br>
+            <input type="text" name="user[username]" id="user[username]"><br>
 
-    <input type="submit" value="Signup">
-</form>
+            <label for="user[email]">Email:</label><br>
+            <input type="text" name="user[email]" id="user[email]"><br>
 
-<a href="/tweets">Visit Tweets Index</a>
+            <label for="user[password]">Password:</label><br>
+            <input type="password" name="user[password]" id="user[password]"><br>
+
+            <input type="submit" value="Signup">
+        </form>
+    </main>
+    <%# <script src="js/scripts.js"></script> %>
+</body>

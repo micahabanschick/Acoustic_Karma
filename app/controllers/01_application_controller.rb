@@ -19,20 +19,18 @@ class ApplicationController < Sinatra::Base
         erb :login, :layout => :layout_signup
     end
 
-    post '/home' do 
-        # binding.pry 
-        @user = User.new(params["user"])
-        # @password = params["user"][:password]
-        # @username = params["user"][:username]
+    get '/home' do 
+        redirect_if_not_logged_in
+        @user = current_user
         erb :home 
     end 
 
     post '/login' do
     # binding.pry
-        user = User.find_by(username: params[:username])
-        if user && user.authenticate(params[:password])
+        params[:user][:username_or_email].include?("@") ? user = User.find_by(email: params[:user][:username_or_email]) : user = User.find_by(username: params[:user][:username_or_email])
+        if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
-            redirect to "/posts"
+            redirect to "/home"
         else
             redirect to "/login"
         end     
@@ -44,10 +42,11 @@ class ApplicationController < Sinatra::Base
     end 
 
     post '/signup' do 
-        redirect to '/signup' if params[:username].empty? || params[:password].empty? || params[:email].empty?
-        @user = User.create(params)
-        session[:user_id] = @user.id
-        redirect to "/posts"
+        # binding.pry
+        redirect to '/signup' if params[:user][:username].empty? || params[:user][:password].empty? || params[:user][:email].empty?
+        user = User.create(params[:user])
+        session[:user_id] = user.id
+        redirect to "/home"
     end
 
     get '/logout' do 

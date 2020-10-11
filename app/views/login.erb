@@ -3,15 +3,19 @@
         <h1>Hello! Login to access Acoustic Karma.</h1>
     </header> 
     <main>
-        <form action="/home" method="post">
-            <label for="user[username]">Username:</label><br>
-            <input type="text" name="user[username]" id="user[username]"><br>
+        <form action="/login" method="post">
+            <label for="user[username_or_email]">Username or Email:</label><br>
+            <input type="text" name="user[username_or_email]" id="user[username_or_email]"><br>
 
             <label for="user[password]">Password:</label><br>
             <input type="password" name="user[password]" id="user[password]"><br>
 
+
             <input type="submit" value="Submit">
         </form>
     </main>
+    <footer>
+        <h2>Don't have an account? Click here to <a href="/signup">Signup</a>!</h2>
+    </footer>
     <%# <script src="js/scripts.js"></script> %>
 </body>
