@@ -1,12 +1,12 @@
 Specifications for the Sinatra Assessment
 Specs:
 
- __ Use Sinatra to build the app
- __ Use ActiveRecord for storing information in a database
- __ Include more than one model class (e.g. User, Post, Category)
- __ Include at least one has_many relationship on your User model (e.g. User has_many Posts)
- __ Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
- __ Include user accounts with unique login attribute (username or email)
+ _X_ Use Sinatra to build the app
+ _X_ Use ActiveRecord for storing information in a database
+ _X_ Include more than one model class (e.g. User, Post, Category)
+ _X_ Include at least one has_many relationship on your User model (e.g. User has_many Posts)
+ _X_ Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
+ _X_ Include user accounts with unique login attribute (username or email)
  __ Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
  __ Ensure that users can't modify content created by other users
  __ Include user input validations

@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
 
     get '/login' do
         redirect_if_logged_in
-        erb :login, :layout => :layout_signup
+        erb :login, :layout => :layout_signin
     end
 
     get '/home' do 
@@ -38,7 +38,7 @@ class ApplicationController < Sinatra::Base
 
     get '/signup' do 
         redirect_if_logged_in
-        erb :signup, :layout => :layout_signup 
+        erb :signup, :layout => :layout_signin 
     end 
 
     post '/signup' do 
