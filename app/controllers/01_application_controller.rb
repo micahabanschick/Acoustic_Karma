@@ -22,7 +22,7 @@ class ApplicationController < Sinatra::Base
     get '/home' do 
         redirect_if_not_logged_in
         @user = current_user
-        erb :home 
+        redirect to "/users/#{@user.slug}"
     end 
 
     post '/login' do
@@ -65,6 +65,12 @@ class ApplicationController < Sinatra::Base
         def redirect_if_logged_in
             if is_logged_in?
               redirect "/home?error=You cannot be logged in to do that"
+            end
+        end
+
+        def redirect_if_not_current_user(user)
+            if current_user != user 
+                redirect "/users/#{user.slug}?error=You cannot manipulate another user account"
             end
         end
     

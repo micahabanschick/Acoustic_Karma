@@ -10,7 +10,7 @@ Specs:
  __ Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
  __ Ensure that users can't modify content created by other users
  __ Include user input validations
- __ BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
+ __ BONUS  __  not required  __  Display validation failures to user with error message (example form URL e.g. /posts/new)
  Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
@@ -19,3 +19,24 @@ Confirm
  __ Your commit messages are meaningful
  __ You made the changes in a commit that relate to the commit message
  __ You don't include changes in a commit that aren't related to the commit message
+
+ Instructions for Self:
+ _X_ create models
+ _X_ create tables
+ _X_ create associations
+ _X_ migrate 
+ _X_ write application controller routes first
+ _X_ create app views
+ _X_ write user controller routes
+ _X_ create user views
+ __ write post controller routes
+ __ create post views
+ __ write song controller routes
+ __ create song views
+ __ write genre controller routes
+ __ create genre views
+ __ write album controller routes
+ __ create album views
+ __ write comment controller routes
+ __ create comment views
+ __ insert flash gem and message

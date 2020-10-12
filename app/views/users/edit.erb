@@ -1,9 +1,15 @@
-<form action='/tweets/<%=@tweet.id%>' method="post">
-    Content:
-    <input type="text" name="content" placeholder="<%=@tweet.content%>"><br>
-    Create Your Tweet:
+<form action='/users/<%=@user.slug%>' method="post">
+    <label for="user[username]">Username:</label><br>
+    <input type="text" name="user[username]" id="user[username]" placeholder="<%=@user.username%>"><br>
 
-    <input type="hidden" name="_method" value="patch">
-    <input type="submit" name="submit">
+    <label for="user[email]">Email:</label><br>
+    <input type="text" name="user[email]" id="user[email]"><br>
 
-  </form>
+    <label for="user[password]">Password:</label><br>
+    <input type="password" name="user[password]" id="user[password]"><br>
+</form>
+
+<form action="/users/<%=@user.slug%>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete user">
+</form>
