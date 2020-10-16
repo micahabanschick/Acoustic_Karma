@@ -1,0 +1,5 @@
+User.create({username: "test-1", email: "test-1@email.com", password: "test-1-password"})
+User.create({username: "test-2", email: "test-2@email.com", password: "test-2-password"})
+User.create({username: "test-3", email: "test-3@email.com", password: "test-3-password"})
+User.create({username: "test-4", email: "test-4@email.com", password: "test-4-password"})
+User.create({username: "test-5", email: "test-5@email.com", password: "test-5-password"})
