@@ -1,8 +1,7 @@
 <form action='/posts' method="post">
-  
-  Content:
-  <input type="text" name="content"><br>
-  Create Your post:
-  <input type="submit" name="submit" id="submit">    <%# <input type="submit" name="submit"> %>
+  <label for="post[content]">Content:</label><br>
+  <input type="textbox" name="post[content]"><br>
 
+  <input type="submit" value="Post">    <%# <input type="submit" name="submit"> %>
 </form>
+<h1><a href="/home">Cancel</a></h1>

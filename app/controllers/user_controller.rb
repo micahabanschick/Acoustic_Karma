@@ -6,7 +6,7 @@ class UserController < ApplicationController
     get '/users/:slug' do 
         # binding.pry
         @user = User.find_by_slug(params[:slug])
-        @posts = Post.all.filter{|post| post.user_id == @user.id}
+        @posts = Post.all.sort_by{|post| post.date_posted}.reverse
         erb :home
     end
 

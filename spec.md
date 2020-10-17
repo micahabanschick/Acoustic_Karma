@@ -29,7 +29,7 @@ Confirm
  _X_ create app views
  _X_ write user controller routes
  _X_ create user views
- __ write post controller routes
+ _X_ write post controller routes
  __ create post views
  __ write song controller routes
  __ create song views

@@ -1,8 +1,11 @@
-<%# <h2>posting!</h2> %>
+<a href="/home">Home</a>
 
-<%=@post.content%>
+<h1><%=@user.username%></h1>
 
-<a href="/posts/<%=@post.id%>/edit">Edit post</a>
+<p><%=@post.content%></p>
+<p><%=@post.date_posted%></p>
+
+<a href="/posts/<%=@post.id%>/edit">Edit Post</a>
 
 <form action="/posts/<%=@post.id%>/delete" method="post">
     <input type="hidden" name="_method" value="delete">

@@ -2,83 +2,58 @@ class PostController < ApplicationController
 
     get '/posts' do 
         # binding.pry
-        if is_logged_in?#.empty?
-            @user = current_user#User.find(session[:user_id])
-            @posts = post.all#.filter{|post| post.user_id == @user.id}
-            erb :"posts/index"
-        else 
-            redirect to "/login"
-        end 
+        redirect_if_not_logged_in
+        @user = current_user
+        @posts = Post.all.filter{|post| post.user_id == @user.id}.sort_by{|post| post.date_posted}.reverse
+        erb :"posts/index"
     end 
 
     get '/posts/new' do 
-        if is_logged_in?
-            erb :"posts/new"
-        else 
-            redirect to "/login"
-        end 
+        redirect_if_not_logged_in
+        erb :"posts/new"
     end
 
     post '/posts' do 
+        redirect_if_not_logged_in
+        redirect to '/posts/new' if params[:post][:content].empty?
         @user = current_user
-        if !params[:content].empty? 
-            @post = post.create(content: params[:content], user_id: @user.id)
-            redirect to "/posts/#{@post.id}"
-        else
-            redirect to "/posts/new"
-        end
+        @post = Post.create({content: params[:post][:content], user_id: @user.id, date_posted: Time.now.strftime("%Y-%m-%d %H:%M:%S")})
+        # @post.date_posted = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+        redirect to "/posts/#{@post.id}"
         # redirect to "/posts/#{@post.id}"
     end 
 
     get '/posts/:id/edit' do
-        if is_logged_in?
-            @post = post.find(params[:id])
-            erb :"posts/edit"
-        else 
-            redirect to "/login"
-        end 
+        @post = Post.find(params[:id])
+        @user = User.find(@post.user_id)
+        redirect_if_not_current_user(@user)
+        erb :"posts/edit"
         # erb :"posts/edit"
     end
 
     delete '/posts/:id/delete' do 
-        @post = post.find(params[:id])
-        if is_logged_in?
-            @user = current_user
-            @post.delete if @post.user_id == @user.id
-            redirect to "/posts"
-        else 
-            redirect to "/login"
-        end 
+        post = Post.find(params[:id])
+        user = User.find(post.user_id)
+        redirect_if_not_current_user(user)
+        post.delete
+        post = nil
+        redirect to "/"
         # erb :"posts/delete"
     end
     
     get '/posts/:id' do  
-        @post = post.find(params[:id])
-        # is_logged_in? ? erb(:"posts/show") : redirect to "/login"
-        if is_logged_in?
-            erb :"posts/show"
-        else 
-            redirect to "/login"
-        end 
+        @post = Post.find(params[:id])
+        @user = User.find(@post.user_id)
+        redirect_if_not_current_user(@user)
+        erb :"posts/show"
     end
 
     patch '/posts/:id' do 
-        @post = post.find(params[:id])
-        if params[:content].empty?
-            redirect to "/posts/#{@post.id}/edit"
-        else 
-            @post.content = params[:content]
-            @post.save
-            redirect to "/posts/#{@post.id}"
-        end 
-        # @post.content = params[:content]
-        # @post.save
-        # redirect to "/posts/#{@post.id}"
-    end
-
-    delete '/posts/:id' do 
-        @post = post.find(params[:id])
-        redirect to "/posts/index"
+        redirect to "/posts/#{params[:id]}/edit" if params[:post][:content].empty?
+        @post = Post.find(params[:id])
+        @post.update(params[:post])
+        @post.save 
+        redirect to "/home"
     end
 
 end 

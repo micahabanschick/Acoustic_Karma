@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 7) do
+ActiveRecord::Schema.define(version: 8) do
 
   create_table "albums", force: :cascade do |t|
     t.string "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 7) do
   create_table "posts", force: :cascade do |t|
     t.string "content"
     t.integer "user_id"
+    t.datetime "date_posted"
   end
 
   create_table "song_genres", force: :cascade do |t|

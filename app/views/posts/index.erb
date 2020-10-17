@@ -1,5 +1,8 @@
 <h1>Welcome, <%=@user.username%> to Acoustic Karma</h1>
+<a href="/home">Home</a>
 <% @posts.each do |post| %>
-    <p><%= post.content %></p>
+    <p><a href="/posts/<%=post.id%>"><%=post.content %></a></p>
+    <p><a href="/posts/<%=post.id%>"><%=post.date_posted %></a></p>
+    <br><br>
 <%end%>
 <%#=yield%>
