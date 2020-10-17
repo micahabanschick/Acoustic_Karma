@@ -30,9 +30,9 @@ Confirm
  _X_ write user controller routes
  _X_ create user views
  _X_ write post controller routes
- __ create post views
- __ write song controller routes
- __ create song views
+ _X_ create post views
+ _X_ write song controller routes
+ _X_ create song views
  __ write genre controller routes
  __ create genre views
  __ write album controller routes

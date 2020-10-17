@@ -1,5 +1,8 @@
-<h1>Welcome, <%=@user.username%> to Fwitter</h1>
-<% @tweets.each do |tweet| %>
-    <p><%= tweet.content %></p>
+<h1>Welcome, <%=@user.username%> to Acoustic Karma</h1>
+<a href="/home">Home</a>
+<% @songs.each do |song| %>
+    <p><a href="/songs/<%=song.id%>"><%=song.name%></a></p>
+    <p><a href="/songs/<%=song.id%>"><%=song.release_date %></a></p>
+    <br><br>
 <%end%>
 <%#=yield%>
