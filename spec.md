@@ -33,10 +33,10 @@ Confirm
  _X_ create post views
  _X_ write song controller routes
  _X_ create song views
- __ write genre controller routes
- __ create genre views
  __ write album controller routes
  __ create album views
+ __ write genre controller routes
+ __ create genre views
  __ write comment controller routes
  __ create comment views
  __ insert flash gem and message

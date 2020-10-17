@@ -1,10 +1,22 @@
-<%# <h2>tweeting!</h2> %>
+<a href="/home">Home</a>
 
-<%=@tweet.content%>
+<h1><%=@user.username%></h1>
 
-<a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a>
+<p><%=@album.name%></p>
+<p><%=@album.release_date%></p>
 
-<form action="/tweets/<%=@tweet.id%>/delete" method="post">
+<h1>Songs:</h1>
+
+<% @album.songs.each do |song| %>
+    <p><a href="/songs/<%=song.id%>"><%=song.name%></a></p>
+    <p><a href="/songs/<%=song.id%>"><%=song.release_date %></a></p>
+    <br><br>
+<%end%>
+
+<p><a href="/albums/<%=@album.id%>/edit">Edit Album</a></p>
+<p><a href="/songs">Add Songs To Album</a></p>
+
+<form action="/albums/<%=@album.id%>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Tweet">
+    <input type="submit" value="Delete Album">
 </form>
