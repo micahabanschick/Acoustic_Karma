@@ -1,10 +1,14 @@
 <form action='/albums/<%=@album.id%>' method="post">
   <label for="album[name]">Name:</label><br>
-  <input type="text" name="album[name]"><br>
+  <input type="text" name="album[name]" placeholder="<%=@album.name%>"><br><br>
+
+  <label for="album[song_ids]">Add or Remove Song(s):</label><br>
+  <% @user.songs.each do |song| %>
+    <input type="checkbox" name="album[song_ids][]" id="<%= song.id %>" value="<%= song.id %>" <%='checked' if @album.songs.include?(song) %>><%= song.name %><br>
+  <% end %>
 
   <input type="hidden" name="_method" value="patch">
   <input type="submit" name="submit">
-
 </form>
 
 <h1><a href="/albums/<%=@album.id%>">Cancel</a></h1>

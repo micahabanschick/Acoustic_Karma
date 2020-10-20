@@ -2,8 +2,12 @@
   <label for="album[name]">Name:</label><br>
   <input type="text" name="album[name]"><br>
 
-  <%# <label for="album[name]">Name:</label><br>
-  <input type="text" name="album[name]"><br> %>
+  <%# <label for="album[song_ids]">Name:</label><br>
+  <input type="text" name="album[song_ids]"><br> %>
+
+  <% @songs.each do |song| %>
+    <input type="checkbox" name="album[song_ids][]" id="<%= song.id %>" value="<%= song.id %>"><%= song.name %><br>
+  <% end %>
 
   <input type="submit" name="Create">
 </form>

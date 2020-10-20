@@ -10,17 +10,21 @@ class AlbumController < ApplicationController
 
     get '/albums/new' do 
         redirect_if_not_logged_in
+        @songs = Song.all
         erb :"albums/new"
     end
 
     post '/albums' do 
         redirect_if_not_logged_in
         redirect to '/albums/new' if params[:album][:name].empty?
+        params[:album]["song_ids"] = [] if !params[:album].keys.include?("song_ids")
+        redirect to '/albums/new' if params[:album][:song_ids].empty?
         @user = current_user
-        @album = Album.create({name: params[:album][:name], user_id: @user.id, release_date: Time.now.strftime("%Y-%m-%d %H:%M:%S")})
-        # @album.date_albumed = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+        @album = Album.create(params[:album])
+        @album.user_id = @user.id
+        @album.release_date = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+        @album.save
         redirect to "/albums/#{@album.id}"
-        # redirect to "/albums/#{@album.id}"
     end 
 
     get '/albums/:id/edit' do
@@ -50,10 +54,12 @@ class AlbumController < ApplicationController
 
     patch '/albums/:id' do 
         redirect to "/albums/#{params[:id]}/edit" if params[:album][:name].empty?
+        params[:album]["song_ids"] = [] if !params[:album].keys.include?("song_ids")
         @album = Album.find(params[:id])
         @album.update(params[:album])
         @album.save 
-        redirect to "/home"
+        redirect to "/albums/#{@album.id}"
+        # redirect to "/home"
     end
 
 end 

@@ -14,7 +14,6 @@
 <%end%>
 
 <p><a href="/albums/<%=@album.id%>/edit">Edit Album</a></p>
-<p><a href="/songs">Add Songs To Album</a></p>
 
 <form action="/albums/<%=@album.id%>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
