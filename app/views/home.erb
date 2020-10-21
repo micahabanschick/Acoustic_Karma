@@ -27,6 +27,10 @@
         <h1><a href="/songs/new">Make A New Song</a></h1>
         <h1><a href="/albums">Your Albums</a></h1>
         <h1><a href="/albums/new">Make A New Album</a></h1>
+        <h1><a href="/genres">Your Genres</a></h1>
+        <%if @user.username == "admin"%>
+            <h1><a href="/genres/new">Make A New Genre</a></h1>
+        <%end%>
         <form action="/logout" method="get">
             <input type="submit" value="Logout">
         </form>

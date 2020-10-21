@@ -1,8 +1,5 @@
 <h1>Welcome, <%=@user.username%> to Acoustic Karma</h1>
 <a href="/home">Home</a>
-<% @albums.each do |album| %>
-    <p><a href="/albums/<%=album.id%>"><%=album.name%></a></p>
-    <p><a href="/albums/<%=album.id%>"><%=album.release_date %></a></p>
-    <br><br>
+<%@genres.each do |genre|%>
+    <a href="/genres/<%=genre.id%>"><%=genre.name%></a><br><br>
 <%end%>
-<%#=yield%>

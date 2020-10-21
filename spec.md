@@ -33,8 +33,8 @@ Confirm
  _X_ create post views
  _X_ write song controller routes
  _X_ create song views
- __ write album controller routes
- __ create album views
+ _X_ write album controller routes
+ _X_ create album views
  __ write genre controller routes
  __ create genre views
  __ write comment controller routes
