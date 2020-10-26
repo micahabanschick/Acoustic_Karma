@@ -1,6 +1,6 @@
 # Acoustic_Karma
 
-This app is an open source tools used to store, market, and archive your music. Once you create your personnal account, you will have access to a "Song" tool for storing a new song's data, and a "Post" tool for writing about your new songs. 
+This app is an open source tool used to store, market, and archive your music. Once you create your personnal account, you will have access to a "Song" tool for storing a new song's data, and a "Post" tool for writing about your new songs. 
 
 ## Usage 
 
