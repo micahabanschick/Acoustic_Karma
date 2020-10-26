@@ -1,5 +1,5 @@
 <h1>Welcome, <%=@user.username%> to Acoustic Karma</h1>
-<a href="/home">Home</a>
+<h2><a href="/home">Home</a></h2>
 <%@genres.each do |genre|%>
     <a href="/genres/<%=genre.id%>"><%=genre.name%></a><br><br>
 <%end%>

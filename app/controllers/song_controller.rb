@@ -36,6 +36,7 @@ class SongController < ApplicationController
     get '/songs/:id/edit' do
         @song = Song.find(params[:id])
         @user = User.find(@song.user_id)
+        @genres = Genre.all
         redirect_if_not_current_user(@user)
         erb :"songs/edit"
         # erb :"songs/edit"

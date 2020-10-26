@@ -77,7 +77,7 @@ class ApplicationController < Sinatra::Base
 
         def redirect_if_not_admin(user)
             redirect_if_not_logged_in
-            if current_user.name != "admin" 
+            if current_user.username != "admin" 
                 redirect "/users/#{user.slug}?error=You cannot manipulate another user account"
             end
         end
