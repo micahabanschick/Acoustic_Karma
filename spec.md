@@ -39,4 +39,4 @@ Confirm
  __ create genre views
  __ write comment controller routes
  __ create comment views
- __ insert flash gem and message
+ _X_ insert flash gem and message

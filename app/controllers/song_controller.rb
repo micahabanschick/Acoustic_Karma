@@ -1,4 +1,8 @@
+require "rack-flash"
+
 class SongController < ApplicationController
+    
+    use Rack::Flash
 
     get '/songs' do 
         # binding.pry
@@ -19,6 +23,7 @@ class SongController < ApplicationController
         @user = current_user
         @song = Song.create({name: params[:song][:name], user_id: @user.id, release_date: Time.now.strftime("%Y-%m-%d %H:%M:%S")})
         # @song.date_songed = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+        flash[:message] = "Successfully created song."
         redirect to "/songs/#{@song.id}"
         # redirect to "/songs/#{@song.id}"
     end 
@@ -53,7 +58,8 @@ class SongController < ApplicationController
         @song = Song.find(params[:id])
         @song.update(params[:song])
         @song.save 
-        redirect to "/home"
+        flash[:message] = "Successfully updated song."
+        redirect to "/songs/#{@song.id}"
     end
 
 end 
