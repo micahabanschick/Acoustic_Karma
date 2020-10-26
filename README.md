@@ -17,7 +17,7 @@ Then install all necessary gems by running
 ```
 $ bundle install
 ```
-And finally setting up the database by running
+And finally set up the database by running
 ```
 $ rake db:migrate
 ```
@@ -30,7 +30,4 @@ Anyone is welcome to report bugs and contribute with pull requests on [this](htt
 
 ## License 
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/example-sinatra-assessment' title='Golf Clubber'>Golf Clubber</a> on Learn.co and start learning to code for free.</p>
+<p>The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).</p>
