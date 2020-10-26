@@ -30,7 +30,7 @@ class GenreController < ApplicationController
         redirect to '/genres/new' if params[:genre][:song_ids].empty?
         @user = current_user
         @genre = genre.create(params[:genre])
-        @genre.user_id = @user.id
+        @genre.user_ids << @user.id
         @genre.release_date = Time.now.strftime("%Y-%m-%d %H:%M:%S")
         @genre.save
         redirect to "/genres/#{@genre.id}"
